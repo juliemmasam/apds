@@ -1,0 +1,14 @@
+{
+  "name": "apds",
+  "version": "1.0.0",
+  "description": "Back-end for APDS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "apds"
+  ],
+  "author": "Emmanuel Julius Samson",
+  "license": "ISC"
+}
