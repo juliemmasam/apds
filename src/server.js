@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const functions = require('./models/location/functions');
 
 const { countryApis } = require('./api/country');
 

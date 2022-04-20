@@ -1,4 +1,4 @@
-const {Countries, Regions, Districts} = require('./location');
+const {Countries} = require('./location');
 
 module.exports = {
   /** Country specific functions*/
@@ -62,65 +62,4 @@ module.exports = {
     );
     });
   },
-
-  /** End of Country specific functions*/
-
-  /** Region specific functions*/
-  // addRegion: function({country_id, region_name}){
-  //   return new Promise((resolve, reject) => {
-  //     Location.findOneAndUpdate(
-  //       {'_id': country_id},
-  //       {$push: {regions: {region_name: region_name}}},
-  //       {new: true},
-  //       (err, country) => {
-  //         if(err){
-  //           reject(err);
-  //         }
-  //         resolve(country);
-  //       }
-  //     );
-  //   });
-  // }
-  //
-  // getRegion: function({country_id, region_id}){
-  //
-  // }
-  //
-  // getAllRegions: function({country_id}){
-  //
-  // }
-  //
-  // deleteRegion: function({country_id, region_id}){
-  //
-  // }
-  //
-  // updateRegion: function({country_id, region_id}){
-  //
-  // }
-
-  /** End of Region specific functions*/
-
-
-  /** District specific functions*/
-  // addDistrict: function({country_id, region_id, district_name}){
-  //
-  // }
-  //
-  // getDistrict: function({country_id, region_id, district_id}){
-  //
-  // }
-  //
-  // getAllDistricts: function({country_id, region_id}){
-  //
-  // }
-  //
-  // deleteDistrict: function({country_id, region_id, district_id}){
-  //
-  // }
-  //
-  // updateDistrict: function({country_id, region_id, district_id}){
-  //
-  // }
-
-  /** End of District specific functions*/
 };
