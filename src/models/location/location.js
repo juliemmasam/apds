@@ -18,7 +18,6 @@ const Region = new mongoose.Schema({
   region_name: {
     type: String,
     required: [true, 'The region_name is required'],
-    unique: true
   }
 });
 
