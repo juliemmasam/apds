@@ -1,11 +1,11 @@
-const {Location} = require('./location');
+const {Countries, Regions, Districts} = require('./location');
 
 module.exports = {
   /** Country specific functions*/
   addCountry : function(country){
     return new Promise((resolve, reject) => {
-      const location = new Location(country);
-      location.save().then((data) => {
+      const newCountry = new Countries(country);
+      newCountry.save().then((data) => {
         console.log("New country added");
         resolve(data);
       }).catch((err) => {
@@ -16,7 +16,7 @@ module.exports = {
 
   getCountry : function({country_id}){
     return new Promise((resolve, reject) => {
-      Location.findById({'_id': country_id}, (err, data)=>{
+      Countries.findById({'_id': country_id}, (err, data)=>{
         if(err){
           reject(err);
         }
@@ -27,7 +27,7 @@ module.exports = {
 
   getAllCountries : function(){
     return new Promise((resolve, reject) => {
-      Location.find({}, (err, countries)=>{
+      Countries.find({}, (err, countries)=>{
         if(err){
           reject(err);
         }
@@ -38,7 +38,7 @@ module.exports = {
 
   deleteCountry: function({country_id}){
     return new Promise((resolve, reject) => {
-      Location.deleteOne({'_id': country_id}, (err, country) => {
+      Countries.deleteOne({'_id': country_id}, (err, country) => {
         if(err){
           reject(err);
         }
@@ -47,11 +47,11 @@ module.exports = {
     });
   },
 
-  updateCountry: function({country_id, country_name}){
+  updateCountry: function({country_id, country_name, country_code}){
     return new Promise((resolve, reject) => {
-      Location.findOneAndUpdate(
+      Countries.findOneAndUpdate(
       {'_id': country_id},
-      {country_name: country_name},
+      {country_name: country_name, country_code: country_code},
       {new: true},
       (err, country) => {
         if(err){
@@ -67,7 +67,19 @@ module.exports = {
 
   /** Region specific functions*/
   // addRegion: function({country_id, region_name}){
-  //
+  //   return new Promise((resolve, reject) => {
+  //     Location.findOneAndUpdate(
+  //       {'_id': country_id},
+  //       {$push: {regions: {region_name: region_name}}},
+  //       {new: true},
+  //       (err, country) => {
+  //         if(err){
+  //           reject(err);
+  //         }
+  //         resolve(country);
+  //       }
+  //     );
+  //   });
   // }
   //
   // getRegion: function({country_id, region_id}){
