@@ -25,4 +25,11 @@ countryApis.route('/')
   .catch(err => res.send(err.errors));
 });
 
+countryApis.route('/exists')
+.post(async (req, res) => {
+  countryFunctions.countryExists(req.body)
+  .then(response => res.send(response))
+  .catch(err => res.send(err.errors));
+});
+
 module.exports = { countryApis };
