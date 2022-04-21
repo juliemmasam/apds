@@ -2,6 +2,12 @@ const {Regions} = require('./location');
 const {countryExists} = require('./countryFunctions');
 
 module.exports = {
+  regionExists: function({region_id}){
+    return new Promise(async (resolve, reject) => {
+      resolve({exists: await Regions.find({'_id': region_id}).count() > 0});
+    });
+  },
+
   /** Region specific functions*/
   addRegion : function(region){
     return new Promise(async(resolve, reject) => {
