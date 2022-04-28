@@ -69,7 +69,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       Regions.findOneAndUpdate(
         {'_id': region_id},
-        {region_name: country_name},
+        {region_name: region_name},
         {new: true},
         (err, region) => {
         if(err){
